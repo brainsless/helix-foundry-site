@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Helix Foundry</title>
+<meta name="description" content="Every system your company runs, matched into one set of objects you can explore and ask questions of. Hosted, or on your own machine.">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/sections.css">
+</head>
+<body>
+
+<div class="announce m">Helix Cloud is open. <a href="#cloud">Start free &#8599;</a></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Helix Foundry, back to the top">
+      <img src="assets/logo-dark.svg" alt="Helix Foundry" width="432" height="80">
+    </a>
+    <nav class="tabs m">
+      <a href="#how">Ontology <i>01</i></a>
+      <a href="#how">Isolation <i>02</i></a>
+      <a href="#ask">Analyst <i>03</i></a>
+      <a href="#cloud">Cloud <i>04</i></a>
+    </nav>
+    <div class="nav-right m">
+      <a href="https://github.com/helixdb/helix-foundry/blob/main/docs/GUIDE.md">Docs</a>
+      <a href="https://github.com/helixdb/helix-foundry">Source</a>
+      <a class="btn btn-solid" href="#cloud">Start free</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <canvas data-field aria-hidden="true"></canvas>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1>Your data, drawn as types and links</h1>
+    <p class="sub">Load a database and Foundry generates the ontology: typed entities, the links between them, and every version kept.</p>
+    <div class="row">
+      <a class="btn btn-solid" href="#cloud">Start on Helix Cloud</a>
+      <a class="btn" href="https://github.com/helixdb/helix-foundry">Self-host under Apache 2.0</a>
+    </div>
+    <p class="cmd">$ <b>git clone github.com/helixdb/helix-foundry.git</b><br>$ <b>cd helix-foundry &amp;&amp; ./scripts/setup.sh --compose</b></p>
+    <p class="backed m">Built on HelixDB <i>/</i> DuckDB <i>/</i> Parquet <i>/</i> Ollama</p>
+  </div>
+</section>
+
+<div class="wrap stack">
+
+  <section class="box">
+    <div class="pad">
+      <p class="m">Schema</p>
+      <h2 style="margin-top:.7rem">Seven types and seven links, drawn from your data.</h2>
+      <p class="prose" style="margin-top:.7rem">Foundry reads what you loaded and proposes the types, the links and the rules. Version 3 sits as an agent draft until you make it current.</p>
+    </div>
+    <figure class="screen" style="margin:0">
+      <img src="assets/shot-schema.jpg" width="4096" height="2011" alt="The Schema view of an ontology called Supabase Retail Operations, showing seven types including DocOrder, DocCustomer and DocProduct as cards, joined by labelled links such as doc includes product and doc placed by.">
+    </figure>
+  </section>
+
+  <section class="box">
+    <div class="pad">
+      <p class="m">Explorer</p>
+      <h2 style="margin-top:.7rem">Walk what a load wrote, node by node.</h2>
+      <p class="prose" style="margin-top:.7rem">Open a record and see its properties and every relationship, in and out, with the load and the version that wrote it.</p>
+    </div>
+    <figure class="screen" style="margin:0">
+      <img src="assets/shot-explorer.jpg" width="4096" height="2030" alt="The Explorer, showing 59 of 84 nodes and 53 of 74 edges as a graph, with a node panel open on order ORD-0000002 listing its properties and its three outgoing and three incoming relationships.">
+    </figure>
+  </section>
+
+  <section class="box split" id="how">
+    <div class="cell up">
+      <p class="m">Fig. 1</p>
+      <div class="stage"><canvas data-diagram="resolve" class="dia-canvas"></canvas></div>
+      <div class="lead-block">
+        <div>
+          <h2><span>01</span>Ontology</h2>
+          <p class="say">Many rows in, one typed entity out.</p>
+        </div>
+        <ol>
+          <li><b>1.1</b><span>Entities merged across tables</span></li>
+          <li><b>1.2</b><span>Links stored natively in HelixDB</span></li>
+          <li><b>1.3</b><span>Every generation kept as a version</span></li>
+        </ol>
+      </div>
+      <a class="btn" href="#cloud">Build your ontology</a>
+    </div>
+
+    <div class="cell up">
+      <p class="m">Fig. 2</p>
+      <div class="stage"><canvas data-diagram="sealed" class="dia-canvas"></canvas></div>
+      <div class="lead-block">
+        <div>
+          <h2><span>02</span>Isolation</h2>
+          <p class="say">Queries run with no internet and no credentials.</p>
+        </div>
+        <ol>
+          <li><b>2.1</b><span>No internet, no connector keys</span></li>
+          <li><b>2.2</b><span>512 MB a job, two jobs at once</span></li>
+          <li><b>2.3</b><span>Nothing written back to your sources</span></li>
+        </ol>
+      </div>
+      <a class="btn" href="https://github.com/helixdb/helix-foundry#security-model">Read the security model</a>
+    </div>
+  </section>
+
+  <section class="box shout pad">
+    <p class="m" style="margin-bottom:1rem">The point</p>
+    <h2>Nobody has to agree on a schema first.</h2>
+    <p style="margin-top:.9rem">Load the data. Foundry proposes the types and the links, and you keep or change them before anything becomes current.</p>
+    <div class="row" style="margin-top:1.4rem"><a class="btn" href="#cloud">Start on Helix Cloud</a></div>
+  </section>
+
+  <section class="box split" id="ask">
+    <div class="pad">
+      <p class="m" style="margin-bottom:1rem">Fig. 3</p>
+      <h2>Ask in English, read back the SQL.</h2>
+      <p class="prose" style="margin-top:.8rem">Foundry writes the SQL, runs it, checks the result, then writes the sentence. The snapshot versions it cites are immutable, so the same question returns the same number next month.</p>
+      <div class="row"><a class="btn" href="#cloud">Ask your own data</a></div>
+    </div>
+    <div class="pad">
+      <div class="ans">
+        <p class="q">Which accounts have an open support ticket and renew in the next 30 days?</p>
+        <p class="a">Nine accounts, holding <b>$14,200</b> of monthly recurring revenue.</p>
+<pre><span class="kw">SELECT</span> a.name, count(t.ticket_id), s.current_period_end
+<span class="kw">FROM</span> accounts a
+<span class="kw">JOIN</span> subscriptions s <span class="kw">ON</span> s.account_id = a.account_id
+<span class="kw">LEFT JOIN</span> support_tickets t <span class="kw">ON</span> t.account_ref = a.name</pre>
+        <p class="cite m">accounts v14, subscriptions v9, support_tickets v3</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="box img-back">
+    <img src="assets/bg-wall.jpg" alt="" aria-hidden="true">
+    <div class="scrim" aria-hidden="true"></div>
+    <div class="split">
+    <div class="pad">
+      <p class="m" style="margin-bottom:1rem">Fig. 4</p>
+      <div class="params">
+        <div><span class="k">1,000,000 rows to Parquet</span><span class="dots"></span><span class="v">472 ms</span></div>
+        <div><span class="k">1 GB of events imported</span><span class="dots"></span><span class="v">10 s</span></div>
+        <div><span class="k">100,000 records published</span><span class="dots"></span><span class="v">64 s</span></div>
+        <div><span class="k">Everything within two links</span><span class="dots"></span><span class="v">16 ms</span></div>
+        <div><span class="k">25 requests at once, median</span><span class="dots"></span><span class="v">1,690 ms</span></div>
+      </div>
+    </div>
+    <div class="pad">
+      <h2>Measured on one laptop.</h2>
+      <p class="prose" style="margin-top:.8rem">Every figure below was measured on one M1 Pro laptop with 16 GB of RAM. Run <code>BENCH_HTTP=1 pnpm benchmark</code> to produce them yourself.</p>
+      <div class="row">
+        <a class="btn" href="#cloud">Start on Helix Cloud</a>
+        <button class="btn btn-plain" type="button" data-copy="install"><span class="label">Copy install</span></button>
+      </div>
+<pre id="install" hidden>git clone https://github.com/helixdb/helix-foundry.git
+cd helix-foundry
+./scripts/setup.sh --compose</pre>
+    </div>
+    </div>
+  </section>
+
+  <section class="box img-back">
+    <img src="assets/bg-corridor.jpg" alt="" aria-hidden="true">
+    <div class="scrim" aria-hidden="true"></div>
+    <div class="split">
+    <div class="pad">
+      <h2>Thirteen ways to load data.</h2>
+      <p class="prose" style="margin-top:.8rem">Postgres and MySQL keep up through native change capture. Everything else refreshes on a schedule you set.</p>
+    </div>
+    <div class="pad">
+      <p class="names">PostgreSQL <i>/</i> MySQL <i>/</i> Neo4j <i>/</i> Neon <i>/</i> Supabase <i>/</i> PlanetScale <i>/</i> Stripe <i>/</i> WorkOS <i>/</i> PostHog <i>/</i> REST <i>/</i> S3 <i>/</i> CSV and Parquet <i>/</i> Ingestion API</p>
+    </div>
+    </div>
+  </section>
+
+  <section class="box close img-back" id="cloud">
+    <img src="assets/bg-swarm.jpg" alt="" aria-hidden="true">
+    <div class="scrim" aria-hidden="true"></div>
+    <div class="pad">
+      <h2>Helix Foundry is now hosted too. <span>Helix Cloud runs it for you: load your data, generate an ontology, and walk it without running HelixDB, DuckDB and Ollama yourself.</span></h2>
+      <div class="row">
+        <a class="btn btn-solid" href="https://github.com/helixdb/helix-foundry">Start on Helix Cloud</a>
+        <a class="btn" href="https://github.com/helixdb/helix-foundry">Read the self-hosted setup</a>
+      </div>
+      <p class="prose m" style="margin-top:1.6rem; max-width:44rem">Self-hosted Foundry listens on 127.0.0.1 only and has no sign-in: anyone on that machine is already in.</p>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer class="foot m">
+  <div class="wrap">
+    <span>Helix Foundry is Apache 2.0 on your own machine, and Helix Cloud when you would rather we ran it.</span>
+    <nav>
+      <a href="https://github.com/helixdb/helix-foundry">GitHub</a>
+      <a href="https://github.com/helixdb/helix-foundry/blob/main/docs/GUIDE.md">Docs</a>
+      <a href="https://docs.helix-db.com">HelixDB</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/field.js" defer></script>
+<script src="assets/diagrams.js" defer></script>
+<script src="assets/lenis.min.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

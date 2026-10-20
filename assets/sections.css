@@ -1,0 +1,131 @@
+/* Each section is its own bordered box with space around it, which is how
+   Prime Intellect stacks them, rather than one continuous hairline grid. */
+
+.box { border: 1px solid var(--line); margin-bottom: var(--gap); }
+.box:last-of-type { margin-bottom: 0; }
+.pad { padding: 1.25rem; }
+@media (min-width: 768px) { .pad { padding: 1.75rem; } }
+
+.split { display: grid; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1024px) {
+  .split { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .split > * + * { border-left: 1px solid var(--line); }
+}
+@media (max-width: 1023px) { .split > * + * { border-top: 1px solid var(--line); } }
+
+/* Navigation */
+
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(14,14,14,.88); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; gap: 1rem; height: 3.25rem; }
+.nav .mark img { height: 0.95rem; width: auto; display: block; }
+.tabs { display: flex; }
+.tabs a { display: flex; align-items: center; gap: 1.5rem; padding: 0.3rem 0.75rem; border: 1px solid var(--line); border-right-width: 0; text-decoration: none; color: var(--ink-2); transition: background-color 150ms var(--ease), color 150ms var(--ease); }
+.tabs a:last-child { border-right-width: 1px; }
+.tabs a:hover { background: var(--card); color: var(--ink); }
+.tabs i { font-style: normal; color: var(--ink-3); }
+.nav-right { margin-left: auto; display: flex; align-items: center; gap: 1.1rem; }
+.nav-right a:not(.btn) { color: var(--ink-2); text-decoration: none; }
+.nav-right a:not(.btn):hover { color: var(--ink); }
+@media (max-width: 1100px) { .tabs { display: none; } }
+@media (max-width: 760px) { .nav-right a:not(.btn) { display: none; } }
+
+.announce { border-bottom: 1px solid var(--line); text-align: center; padding: 0.5rem 1rem; }
+.announce a { color: var(--ink); text-decoration: none; }
+.announce a:hover { color: var(--mint); }
+
+/* Hero: the film runs edge to edge, the words sit over its left side. */
+
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero .scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,14,14,.94) 0%, rgba(14,14,14,.55) 40%, rgba(14,14,14,0) 72%); }
+.hero .wrap { position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; min-height: min(42rem, 86vh); padding-top: 7rem; padding-bottom: 2.25rem; }
+.hero .wrap > * { max-width: 100%; }
+.hero h1 { max-width: 16ch; margin-bottom: 0.9rem; text-shadow: 0 0 44px rgba(133, 237, 117, 0.18); }
+.hero .sub { max-width: 30rem; color: var(--ink-2); margin-bottom: 1.4rem; }
+.hero .row { margin-bottom: 1.2rem; }
+.hero .cmd { font-family: var(--mono); font-size: 0.8125rem; line-height: 1.9; color: var(--ink-2); overflow-x: auto; white-space: nowrap; min-width: 0; max-width: 100%; }
+.hero .cmd b { color: var(--mint); font-weight: 400; }
+@media (max-width: 620px) { .hero .cmd { white-space: normal; overflow-wrap: anywhere; overflow-x: visible; } }
+
+.backed { display: flex; flex-wrap: wrap; gap: 0.35rem 0.7rem; align-items: baseline; margin-top: 1.5rem; }
+.backed i { font-style: normal; color: var(--rule-2); }
+
+/* The product */
+
+.screen { border-top: 1px solid var(--line); }
+.screen img { display: block; width: 100%; height: auto; }
+
+/* A figure cell: label, moving drawing, then the numbered block */
+
+.cell { display: flex; flex-direction: column; padding: 1.25rem; }
+@media (min-width: 768px) { .cell { padding: 1.75rem; } }
+.cell > .m:first-child { margin-bottom: 0.9rem; }
+
+.stage { flex: 1; min-height: 0; margin-bottom: 1.4rem; }
+.dia-canvas { display: block; width: 100%; height: 15rem; }
+@media (max-width: 860px) { .dia-canvas { height: 12rem; } }
+
+.lead-block { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr); gap: 1.1rem; align-items: start; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+@media (max-width: 640px) { .lead-block { grid-template-columns: minmax(0, 1fr); } }
+.lead-block h2 { font-size: 1rem; letter-spacing: 0; margin-bottom: 0.5rem; }
+.lead-block h2 span { color: var(--ink-3); margin-right: 0.55rem; font-variant-numeric: tabular-nums; }
+.lead-block .say { font-size: 1.125rem; line-height: 1.22; letter-spacing: -0.02em; }
+.lead-block ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.lead-block li { display: grid; grid-template-columns: 1.9rem minmax(0, 1fr); gap: 0.5rem; color: var(--ink-2); font-size: 0.875rem; }
+.lead-block li b { font-family: var(--mono); font-size: 0.6875rem; font-weight: 400; color: var(--ink-3); padding-top: 0.12rem; }
+.cell .btn { align-self: flex-start; margin-top: 1.2rem; }
+
+/* The answer */
+
+.ans .q { color: var(--ink-2); margin-bottom: 0.8rem; }
+.ans .a { font-size: 1.125rem; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 1rem; }
+.ans .a b { color: var(--mint); font-weight: 400; }
+.ans pre { margin: 0; padding: 0.9rem 1rem; border: 1px solid var(--line); background: var(--card-2); font-family: var(--mono); font-size: 0.6875rem; line-height: 1.8; color: var(--ink-2); overflow-x: auto; white-space: pre; }
+.ans pre .kw { color: rgba(255,255,255,.75); }
+.ans .cite { margin-top: 0.7rem; }
+
+/* Figures with numbers */
+
+.params { display: grid; gap: 0.6rem; }
+.params div { display: grid; grid-template-columns: minmax(0, auto) 1fr minmax(0, auto); align-items: baseline; gap: 0.5rem; font-family: var(--mono); font-size: 0.75rem; }
+.params .k { color: var(--ink-2); white-space: nowrap; }
+.params .dots { border-bottom: 1px dotted var(--rule-2); transform: translateY(-0.22rem); }
+.params .v { color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.names { font-family: var(--mono); font-size: 0.8125rem; line-height: 2.1; }
+.names i { font-style: normal; color: var(--rule-2); margin: 0 0.25rem; }
+
+.prose { color: var(--ink-2); max-width: 34rem; }
+.prose + .row { margin-top: 1.3rem; }
+
+/* Closing band */
+
+.close { position: relative; overflow: hidden; }
+.close canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0.5; }
+.close .scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,14,14,.95), rgba(14,14,14,.55)); }
+.close .pad { position: relative; padding-top: 3.5rem; padding-bottom: 3.5rem; }
+.close h2 { max-width: 22ch; margin-bottom: 1.1rem; }
+.close h2 span { color: var(--ink-2); }
+
+.foot { padding: 1.5rem 0 2.25rem; }
+.foot .wrap { display: flex; flex-wrap: wrap; gap: 0.7rem 1.4rem; align-items: center; justify-content: space-between; }
+.foot nav { display: flex; gap: 1.1rem; }
+.foot a { color: var(--ink-2); text-decoration: none; }
+.foot a:hover { color: var(--ink); }
+
+.stack { padding: var(--gap) 0; }
+
+/* Images and colour, so the page is not one long grey. A rendered band sits
+   behind a section the way Prime Intellect backs theirs. */
+.img-back { position: relative; overflow: hidden; }
+.img-back > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
+.img-back > .scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,14,14,.95) 0%, rgba(14,14,14,.6) 55%, rgba(14,14,14,.3) 100%); }
+.img-back > .pad, .img-back > .split { position: relative; }
+
+/* One bright block, so the eye has somewhere to land. */
+.shout { background: var(--mint); color: #08210a; border-color: var(--mint); }
+.shout h2 { letter-spacing: -0.03em; max-width: 20ch; }
+.shout p { color: rgba(8,33,10,.72); max-width: 32rem; }
+.shout .m { color: rgba(8,33,10,.55); }
+.shout .btn { border-color: rgba(8,33,10,.4); color: #08210a; }
+.shout .btn:hover { background: #08210a; border-color: #08210a; color: var(--mint); }
