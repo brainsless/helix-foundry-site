@@ -38,8 +38,8 @@
   <canvas data-field aria-hidden="true"></canvas>
   <div class="scrim" aria-hidden="true"></div>
   <div class="wrap">
-    <h1>Your data, drawn as types and links</h1>
-    <p class="sub">Load a database and Foundry generates the ontology: typed entities, the links between them, and every version kept.</p>
+    <h1>Your company&#8217;s data, connected into one ontology</h1>
+    <p class="sub">Connect your database, Stripe, WorkOS, PostHog and your files. Foundry suggests one ontology across them that you explore and ask questions of.</p>
     <div class="row">
       <a class="btn btn-solid" href="#cloud">Start on Helix Cloud</a>
       <a class="btn" href="https://github.com/helixdb/helix-foundry">Self-host under Apache 2.0</a>
@@ -54,8 +54,8 @@
   <section class="box">
     <div class="pad">
       <p class="m">Schema</p>
-      <h2 style="margin-top:.7rem">Seven types and seven links, drawn from your data.</h2>
-      <p class="prose" style="margin-top:.7rem">Foundry reads what you loaded and proposes the types, the links and the rules. Version 3 sits as an agent draft until you make it current.</p>
+      <h2 style="margin-top:.7rem">A suggested ontology that matches the same records across sources.</h2>
+      <p class="prose" style="margin-top:.7rem">The types, links and rules drawn from your data, stored as real objects and relationships in HelixDB. A generation stays a draft until you make it current.</p>
     </div>
     <figure class="screen" style="margin:0">
       <img src="assets/shot-schema.jpg" width="4096" height="2011" alt="The Schema view of an ontology called Supabase Retail Operations, showing seven types including DocOrder, DocCustomer and DocProduct as cards, joined by labelled links such as doc includes product and doc placed by.">
@@ -65,8 +65,8 @@
   <section class="box">
     <div class="pad">
       <p class="m">Explorer</p>
-      <h2 style="margin-top:.7rem">Walk what a load wrote, node by node.</h2>
-      <p class="prose" style="margin-top:.7rem">Open a record and see its properties and every relationship, in and out, with the load and the version that wrote it.</p>
+      <h2 style="margin-top:.7rem">Everything a load wrote: its entities and facts.</h2>
+      <p class="prose" style="margin-top:.7rem">Open a record to see its properties and every relationship, in and out, with the load and the version that wrote it.</p>
     </div>
     <figure class="screen" style="margin:0">
       <img src="assets/shot-explorer.jpg" width="4096" height="2030" alt="The Explorer, showing 59 of 84 nodes and 53 of 74 edges as a graph, with a node panel open on order ORD-0000002 listing its properties and its three outgoing and three incoming relationships.">
@@ -80,12 +80,12 @@
       <div class="lead-block">
         <div>
           <h2><span>01</span>Ontology</h2>
-          <p class="say">Many rows in, one typed entity out.</p>
+          <p class="say">The same customer, matched across every source.</p>
         </div>
         <ol>
-          <li><b>1.1</b><span>Entities merged across tables</span></li>
-          <li><b>1.2</b><span>Links stored natively in HelixDB</span></li>
-          <li><b>1.3</b><span>Every generation kept as a version</span></li>
+          <li><b>1.1</b><span>Real objects and relationships in HelixDB</span></li>
+          <li><b>1.2</b><span>Immutable Parquet snapshots, with history</span></li>
+          <li><b>1.3</b><span>Proposed changes are tested, then wait for you</span></li>
         </ol>
       </div>
       <a class="btn" href="#cloud">Build your ontology</a>
@@ -97,12 +97,12 @@
       <div class="lead-block">
         <div>
           <h2><span>02</span>Isolation</h2>
-          <p class="say">Queries run with no internet and no credentials.</p>
+          <p class="say">Generated SQL runs where it can reach nothing.</p>
         </div>
         <ol>
-          <li><b>2.1</b><span>No internet, no connector keys</span></li>
-          <li><b>2.2</b><span>512 MB a job, two jobs at once</span></li>
-          <li><b>2.3</b><span>Nothing written back to your sources</span></li>
+          <li><b>2.1</b><span>No internet, no connector credentials</span></li>
+          <li><b>2.2</b><span>No Linux capabilities, 512 MB a job</span></li>
+          <li><b>2.3</b><span>Credentials encrypted with a key you hold</span></li>
         </ol>
       </div>
       <a class="btn" href="https://github.com/helixdb/helix-foundry#security-model">Read the security model</a>
@@ -112,15 +112,15 @@
   <section class="box shout pad">
     <p class="m" style="margin-bottom:1rem">The point</p>
     <h2>Nobody has to agree on a schema first.</h2>
-    <p style="margin-top:.9rem">Load the data. Foundry proposes the types and the links, and you keep or change them before anything becomes current.</p>
+    <p style="margin-top:.9rem">Connect a source. Foundry suggests the ontology, you keep or change it, and nothing is published until you say so.</p>
     <div class="row" style="margin-top:1.4rem"><a class="btn" href="#cloud">Start on Helix Cloud</a></div>
   </section>
 
   <section class="box split" id="ask">
     <div class="pad">
       <p class="m" style="margin-bottom:1rem">Fig. 3</p>
-      <h2>Ask in English, read back the SQL.</h2>
-      <p class="prose" style="margin-top:.8rem">Foundry writes the SQL, runs it, checks the result, then writes the sentence. The snapshot versions it cites are immutable, so the same question returns the same number next month.</p>
+      <h2>Answers backed by executed SQL.</h2>
+      <p class="prose" style="margin-top:.8rem">Ask anything about your data. The answer comes back with the query that produced it and a citation to the exact snapshot it ran against, and those snapshots are immutable.</p>
       <div class="row"><a class="btn" href="#cloud">Ask your own data</a></div>
     </div>
     <div class="pad">
@@ -169,8 +169,8 @@ cd helix-foundry
     <div class="scrim" aria-hidden="true"></div>
     <div class="split">
     <div class="pad">
-      <h2>Thirteen ways to load data.</h2>
-      <p class="prose" style="margin-top:.8rem">Postgres and MySQL keep up through native change capture. Everything else refreshes on a schedule you set.</p>
+      <h2>Connect what your company already runs on.</h2>
+      <p class="prose" style="margin-top:.8rem">Automatic sync through native PostgreSQL and MySQL change capture where the database allows it, and scheduled snapshot refreshes otherwise.</p>
     </div>
     <div class="pad">
       <p class="names">PostgreSQL <i>/</i> MySQL <i>/</i> Neo4j <i>/</i> Neon <i>/</i> Supabase <i>/</i> PlanetScale <i>/</i> Stripe <i>/</i> WorkOS <i>/</i> PostHog <i>/</i> REST <i>/</i> S3 <i>/</i> CSV and Parquet <i>/</i> Ingestion API</p>
@@ -182,7 +182,7 @@ cd helix-foundry
     <img src="assets/bg-swarm.jpg" alt="" aria-hidden="true">
     <div class="scrim" aria-hidden="true"></div>
     <div class="pad">
-      <h2>Helix Foundry is now hosted too. <span>Helix Cloud runs it for you: load your data, generate an ontology, and walk it without running HelixDB, DuckDB and Ollama yourself.</span></h2>
+      <h2>Now there is nothing to host. <span>Helix Cloud runs the same build we publish, so you connect a source and explore the ontology without standing up HelixDB, DuckDB and Ollama yourself.</span></h2>
       <div class="row">
         <a class="btn btn-solid" href="https://github.com/helixdb/helix-foundry">Start on Helix Cloud</a>
         <a class="btn" href="https://github.com/helixdb/helix-foundry">Read the self-hosted setup</a>

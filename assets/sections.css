@@ -40,7 +40,7 @@
 .hero .scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,14,14,.94) 0%, rgba(14,14,14,.55) 40%, rgba(14,14,14,0) 72%); }
 .hero .wrap { position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; min-height: min(42rem, 86vh); padding-top: 7rem; padding-bottom: 2.25rem; }
 .hero .wrap > * { max-width: 100%; }
-.hero h1 { max-width: 16ch; margin-bottom: 0.9rem; text-shadow: 0 0 44px rgba(133, 237, 117, 0.18); }
+.hero .wrap > h1 { max-width: 21ch; margin-bottom: 0.9rem; text-shadow: 0 0 44px rgba(133, 237, 117, 0.18); }
 .hero .sub { max-width: 30rem; color: var(--ink-2); margin-bottom: 1.4rem; }
 .hero .row { margin-bottom: 1.2rem; }
 .hero .cmd { font-family: var(--mono); font-size: 0.8125rem; line-height: 1.9; color: var(--ink-2); overflow-x: auto; white-space: nowrap; min-width: 0; max-width: 100%; }
